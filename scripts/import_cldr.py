@@ -11,7 +11,6 @@
 # This software consists of voluntary contributions made by many
 # individuals. For the exact contribution history, see the revision
 # history and logs, available at http://babel.edgewall.org/log/.
-
 from optparse import OptionParser
 import os
 import re
@@ -474,7 +473,11 @@ def main():
                 unit_patterns[unit_type][pattern.attrib['count']] = \
                         text_type(pattern.text)
 
-        outfile = open(os.path.join(destdir, 'localedata', stem + '.dat'), 'wb')
+        dest = os.path.join(destdir, 'localedata', stem + '.dat')
+        if not os.path.exists(os.path.dirname(dest)):
+            os.mkdir(os.path.dirname(dest))
+
+        outfile = open(dest, 'wb')
         try:
             pickle.dump(data, outfile, 2)
         finally:
