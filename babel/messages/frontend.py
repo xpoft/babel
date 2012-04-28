@@ -134,7 +134,7 @@ class compile_catalog(Command):
 
         for idx, (locale, po_file) in enumerate(po_files):
             mo_file = mo_files[idx]
-            infile = open(po_file, 'r')
+            infile = open(po_file, 'rb')
             try:
                 catalog = read_po(infile, locale)
             finally:
@@ -549,7 +549,7 @@ class update_catalog(Command):
         for locale, filename in po_files:
             log.info('updating catalog %r based on %r', filename,
                      self.input_file)
-            infile = open(filename, 'U')
+            infile = open(filename, 'U', encoding="utf-8")
             try:
                 catalog = read_po(infile, locale=locale, domain=domain)
             finally:
@@ -560,7 +560,7 @@ class update_catalog(Command):
             tmpname = os.path.join(os.path.dirname(filename),
                                    tempfile.gettempprefix() +
                                    os.path.basename(filename))
-            tmpfile = open(tmpname, 'w')
+            tmpfile = open(tmpname, 'wb')
             try:
                 try:
                     write_po(tmpfile, catalog,
