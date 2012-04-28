@@ -27,16 +27,19 @@ except ImportError:
 
 
 setup(
-    name = 'Babel',
+    name = 'Babel3k',
     version = '1.0',
     description = 'Internationalization utilities',
     long_description = \
-"""A collection of tools for internationalizing Python applications.""",
+"""This is a port of original Babel package for Python 3.
+A collection of tools for internationalizing Python applications.""",
     author = 'Edgewall Software',
     author_email = 'info@edgewall.org',
+    maintainer = 'Alexander Fedorov',
+    maintainer_email = 'xpoft@xpoft.ru',
     license = 'BSD',
     url = 'http://babel.edgewall.org/',
-    download_url = 'http://babel.edgewall.org/wiki/Download',
+    download_url = 'https://github.com/xpoft/babel',
     zip_safe = False,
 
     classifiers = [
@@ -45,7 +48,7 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python',
+        'Programming Language :: Python :: 3',
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     packages = ['babel', 'babel.messages'],
