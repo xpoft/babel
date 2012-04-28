@@ -27,7 +27,7 @@ except ImportError:
 
 
 setup(
-    name = 'Babel3k',
+    name = 'Babel',
     version = '1.0',
     description = 'Internationalization utilities',
     long_description = \
